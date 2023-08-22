@@ -16,10 +16,14 @@ function db_bulk_manager_form_display() {
         }
     }
 
+    $current_screen = get_current_screen();
+    $post_type = $current_screen->post_type;
+    
     $args = array(
         'posts_per_page' => -1,
-        'post_type' => 'post'
+        'post_type' => $post_type
     );
+    
     $posts = get_posts($args);
 
     echo '<h2 class="page-title">Bulk Manager</h2>';
